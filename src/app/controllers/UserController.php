@@ -5,13 +5,11 @@ class UserController extends BaseController {
 	protected $layout = 'layouts.master';
 
 
-	public function showLogin()
-	{
+	public function showLogin(){
 		$this->layout->content = View::make('users.login');
 	}
 
-	public function doLogin()
-	{
+	public function doLogin(){
 		// validate the info, create rules for the inputs
 		$rules = array(
 			'email'    => 'required|email',
@@ -52,13 +50,11 @@ class UserController extends BaseController {
 		}
 	}
 
-	public function showRegister()
-	{
+	public function showRegister(){
 		$this->layout->content = View::make('users.register');
 	}
 
-	public function doRegister()
-	{
+	public function doRegister(){
 		$rules = array(
 			'name' 					=> 'required|min:3',
 			'email'    				=> 'required|email',
