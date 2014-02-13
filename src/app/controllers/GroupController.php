@@ -23,7 +23,7 @@ public function showGroup() {
 *
 */
 public function showThisGroup($input) {
-	$this->layout->content = View::make('groups.this');
+	$this->layout->content = View::make('groups.thisGroup');
 }
 
 /**
@@ -37,7 +37,7 @@ public function showEditThisGroup($id) {
 *
 */
 public function showAddGroup() {
-	$this->layout->content = View::make('groups.add');
+	$this->layout->content = View::make('groups.addGroup');
 }
 
 /*

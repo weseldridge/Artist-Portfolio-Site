@@ -3,8 +3,8 @@
 @section('content')
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		{{ Form::open(array('url'=>'item/edit', 'class'=>'form-signup', 'role'=>'form')) }}
-		<h2 class="form-signup-heading">End item</h2>
+		{{ Form::open(array('url'=>'item/add', 'class'=>'form-signup', 'role'=>'form')) }}
+		<h2 class="form-signup-heading">Add a new item</h2>
 
 		<ul>
 			@foreach($errors->all() as $error)
@@ -28,9 +28,15 @@
 			<label for="date">Completion Date</label>
 			{{ Form::text('date', null, array('class'=>'form-control', 'placeholder'=>'Enter Creation Date')) }}
 		</div>
+		<div class="form-group">
+			<label for="date">File</label>
+			{{ Form::file('file') }}
+		</div>
 
-		{{ Form::submit('Update Item', array('class'=>'btn btn-large btn-primary btn-block'))}}
+
+		{{ Form::submit('Add Item', array('class'=>'btn btn-large btn-primary btn-block'))}}
 		{{ Form::close() }}
 	</div>
 </div>
+
 @stop

@@ -22,7 +22,7 @@ public function showItem() {
 *
 */
 public function showThisItem($id) {
-	$this->layout->content = View::make('items.this');
+	$this->layout->content = View::make('items.thisItem');
 }
 
 /**
@@ -36,7 +36,7 @@ public function showEditThisItem($id) {
 *
 */
 public function showAddItem() {
-	$this->layout->content = View::make('items.add');
+	$this->layout->content = View::make('items.addItem');
 }
 
 /*

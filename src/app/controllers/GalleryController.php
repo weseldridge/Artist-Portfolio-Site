@@ -22,14 +22,14 @@ public function showGallery() {
 *
 */
 public function showThisGallery($input) {
-	$this->layout->content = View::make('galleries.this');
+	$this->layout->content = View::make('galleries.thisGallery');
 }
 
 /**
 *
 */
 public function showAddGallery() {
-	$this->layout->content = View::make('galleries.add');
+	$this->layout->content = View::make('galleries.addGallery');
 }
 
 /**

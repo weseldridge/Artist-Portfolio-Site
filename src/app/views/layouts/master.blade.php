@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}" />
 </head>
 <body>
+	<button>{{ HTML::link('/', 'Home') }}</button>
 	<div class="container">
 		@yield('content')
 	</div>
