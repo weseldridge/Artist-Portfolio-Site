@@ -15,7 +15,8 @@ protected $layout = 'layouts.master';
 *
 */
 public function showGallery() {
-	$this->layout->content = View::make('galleries.main');
+	$galleries = Gallery::all();
+	$this->layout->content = View::make('galleries.main')->with('galleries', $galleries);
 }
 
 /**
@@ -32,7 +33,7 @@ public function showThisGalleryById($input) {
 *
 */
 public function showThisGalleryByName($input) {
-	$gallery = Gallery::where('url_name','=', $input);
+	$gallery = Gallery::where('name','=', $input)->get();
 	$id = $gallery->id;
 	$this->layout->content = View::make('galleries.thisGallery')->with('id', $id)
 															 	->with('gallery', $gallery);

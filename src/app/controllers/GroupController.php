@@ -15,8 +15,8 @@ protected $layout = 'layouts.master';
 *
 */
 public function showGroup() {
-
-	$this->layout->content = View::make('groups.main');
+	$groups = Group::all();
+	$this->layout->content = View::make('groups.main')->with('groups', $groups);
 }
 
 /**

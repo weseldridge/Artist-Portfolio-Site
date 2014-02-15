@@ -38,7 +38,7 @@ Route::post('gallery/edit/{id}', array('uses' => 'GalleryController@doEditThisGa
 // Public Access
 Route::get('gallery', array('uses' => 'GalleryController@showGallery'));
 Route::get('gallery/{id}', array('uses' => 'GalleryController@showThisGalleryById'))->where('id', '[0-9]+');
-Route::get('gallery/{name}', array('uses' => 'GalleryController@showThisGalleryByName'))->where('name', '[A-Za-z]+');
+Route::get('gallery/{name}', array('uses' => 'GalleryController@showThisGalleryByName'))->where('name', '[A-Za-z0-9]+');
 
 /*
 * ----------------------------------------------------------------------------
@@ -71,7 +71,7 @@ Route::post('group/edit/{id}', array('uses' => 'GroupController@doEditThisGroup'
 // Public Access
 Route::get('group', array('uses' => 'GroupController@showGroup'));
 Route::get('group/{id}', array('uses' => 'GroupController@showThisGroupById'))->where('id', '[0-9]+');
-Route::get('group/{name}', array('uses' => 'GroupController@showThisGroupByName'))->where('name', '[A-Za-z]+');
+Route::get('group/{name}', array('uses' => 'GroupController@showThisGroupByName'))->where('name', '[A-Za-z0-9]+');
 
 
 

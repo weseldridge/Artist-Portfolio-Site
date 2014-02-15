@@ -14,7 +14,8 @@ class ItemController extends BaseController {
 *
 */
 public function showItem() {
-	$this->layout->content = View::make('items.main');
+	$items = Item::all();
+	$this->layout->content = View::make('items.main')->with('items', $items);
 }
 
 /**
