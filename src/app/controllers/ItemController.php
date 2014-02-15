@@ -65,7 +65,7 @@ public function doEditThisItem($id) {
 		return Redirect::to('item/edit/' . $id)
 			->withErrors($validator);
 	} else {
-		$item = Item::find(Input::get('id'));
+		$item = Item::find(Input::get($id));
 		$item->name = Input::get('name');
 		$item->description = Input::get('description');
 		$item->price = Input::get('price');
@@ -110,35 +110,5 @@ public function doAddItem() {
 *							HELPER METHODS
 * ----------------------------------------------------------------------------
 */
-
-/**
-*
-*/
-private function create_item($input)
-{
-	$item = Item::create(array(
-		'name' => $input['name'],
-		'description' => $input['description'],
-		'price' => $input['price'],
-		'input' => $input['date'],
-		));
-
-	return $item;
-
-}
-
-
-/**
-*
-*/
-private function update_item($input)
-{
-	$item = Item::find($input['id']);
-	$item->name = $input['name'];
-	$item->description = $input['description'];
-	$item->price = $input['price'];
-	$item->date = $input['date'];
-	$item->save();
-}
 
 }

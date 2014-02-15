@@ -51,6 +51,28 @@ public function showAddGroup() {
 */
 public function doEditThisGroup($id) {
 
+	// validate the info, create rules for the inputs
+	$rules = array(
+			'name'    		=> 'required|min:3|max:49|unique:groups',
+			'description' 	=> 'min:3|max:250',
+		);
+
+	// run the validation rules on the inputs from the form
+	$validator = Validator::make(Input::all(), $rules);
+
+	// if the validator fails, redirect back to the form
+	if ($validator->fails()) {
+		return Redirect::to('group/edit/' . $id)
+			->withErrors($validator);
+	} else {
+		$group = Group::find(Input::get($id));
+		$group->name = Input::get('name');
+		$group->description = Input::get('description');
+		$group->save();
+
+		return Redirect::to('/')->with('message', 'Group successfully updated.');
+	}
+
 }
 
 /**
@@ -58,6 +80,25 @@ public function doEditThisGroup($id) {
 */
 public function doAddGroup() {
 
+	$rules = array(
+			'name' 			=> 'required|min:3|max:49|unique:groups',
+			'description'	=> 'min:3|max:250',
+		);
+
+	// run the validation rules on the inputs from the form
+	$validator = Validator::make(Input::all(), $rules);
+
+	// if the validator fails, redirect back to the form
+	if ($validator->fails()) {
+		return Redirect::to('group/add')->with('message', 'The following errors occurred: ')->withErrors($validator)->withInput();
+	} else {
+		$group = new Group;
+	    $group->name = Input::get('name');
+	    $group->description = Input::get('description');
+	    $group->save();
+
+	    return Redirect::to('/')->with('message', 'Group successfully added.');
+	}
 }
 
 

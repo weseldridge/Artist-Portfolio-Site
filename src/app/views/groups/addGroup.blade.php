@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
 	<div class="col-md-4 col-md-offset-4">
-		{{ Form::open(array('url'=>'item/add', 'class'=>'form-signup', 'role'=>'form')) }}
+		{{ Form::open(array('url'=>'group/add', 'class'=>'form-signup', 'role'=>'form')) }}
 		<h2 class="form-signup-heading">Add a new group</h2>
 
 		<ul>
@@ -20,10 +20,10 @@
 			<label for="description">Group Description</label>
 			{{ Form::text('description', null, array('class'=>'form-control', 'placeholder'=>'Enter Item Description')) }}
 		</div>
-		<div class="form-group">
+		{{-- <div class="form-group">
 			<label for="date">File</label>
 			{{ Form::file('file') }}
-		</div>
+		</div> --}}
 
 
 		{{ Form::submit('Add Group', array('class'=>'btn btn-large btn-primary btn-block'))}}

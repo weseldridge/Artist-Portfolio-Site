@@ -20,10 +20,10 @@
 			<label for="description">Gallery Description</label>
 			{{ Form::text('description', null, array('class'=>'form-control', 'placeholder'=>'Enter Item Description')) }}
 		</div>
-		<div class="form-group">
+		{{--<div class="form-group">
 			<label for="price">Image</label>
 			{{ Form::file('img') }}
-		</div>
+		</div>--}}
 
 		{{ Form::submit('Add Gallery', array('class'=>'btn btn-large btn-primary btn-block'))}}
 		{{ Form::close() }}
