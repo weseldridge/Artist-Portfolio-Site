@@ -25,10 +25,6 @@
 			{{ Form::text('price', null, array('class'=>'form-control', 'placeholder'=>'Enter a price')) }}
 		</div>
 		<div class="form-group">
-			<label for="date">Completion Date</label>
-			{{ Form::text('date', null, array('class'=>'form-control', 'placeholder'=>'Enter Creation Date')) }}
-		</div>
-		<div class="form-group">
 			<label for="date">File</label>
 			{{ Form::file('file') }}
 		</div>

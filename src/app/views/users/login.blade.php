@@ -11,7 +11,7 @@
 		<div>{{ HTML::link('users/passrest', 'Forgot Password') }}</div>
 	</div>
 	<div class="col-md-4 col-md-offset-1">
-		{{ Form::open(array('url'=>'users/doLogin', 'class'=>'form-signup', 'role'=>'form')) }}
+		{{ Form::open(array('url'=>'login', 'class'=>'form-signup', 'role'=>'form')) }}
 			<h2 class="form-signup-heading">Please Login</h2>
 
 			<ul>

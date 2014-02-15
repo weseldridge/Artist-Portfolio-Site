@@ -39,12 +39,12 @@ class UserController extends BaseController {
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
 				// for now we'll just echo success (even though echoing in a controller is bad)
-				echo 'SUCCESS!';
+				return Redirect::to('/')->with('msg', 'Successful logged in!');
 
 			} else {	 	
 
 				// validation not successful, send back to form	
-				return Redirect::to('login');
+				return Redirect::to('login')->with('msg','email or password is incorect');
 
 			}
 		}
@@ -57,7 +57,7 @@ class UserController extends BaseController {
 	public function doRegister(){
 		$rules = array(
 			'name' 					=> 'required|min:3',
-			'email'    				=> 'required|email',
+			'email'    				=> 'required|email|unique:users',
 			'password' 				=> 'required|alphaNum|between:6,15|confirmed',
 			'password_confirmation'	=> 'required|alpha_num|between:6,12',
 		);
@@ -70,12 +70,12 @@ class UserController extends BaseController {
 			return Redirect::to('register')->with('message', 'The following errors occurred')->withErrors($validator)->withInput();
 		} else {
 			$user = new User;
-		    $user->name = Input::get('name');
+		    $user->name = Input::get('email');
 		    $user->email = Input::get('email');
 		    $user->password = Hash::make(Input::get('password'));
-		    $user->create();
+		    $user->save();
 
-		    return Redirect::to('users/login')->with('message', 'Thanks for registering!');
+		    return Redirect::to('login')->with('message', 'Thanks for registering!');
 		}
 	}
 

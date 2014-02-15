@@ -4,7 +4,7 @@
 
 <div class="row"> 
 	<div class="col-md-4 col-md-offset-4">
-		{{ Form::open(array('url'=>'users/doRegister', 'class'=>'form-signup', 'role'=>'form')) }}
+		{{ Form::open(array('url'=>'register', 'class'=>'form-signup', 'role'=>'form')) }}
 			<h2 class="form-signup-heading">Please Register</h2>
 
 			<ul>
