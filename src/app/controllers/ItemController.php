@@ -28,7 +28,8 @@ public function showThisItem($id) {
 *
 */
 public function showEditThisItem($id) {
-	$this->layout->content = View::make('items.editThis');
+	$item = Item::find($id);
+	$this->layout->content = View::make('items.editThis')->with('id', $id)->with('item', $item);
 }
 
 /**
@@ -55,7 +56,7 @@ public function doEditThisItem($id) {
 	// validate the info, create rules for the inputs
 	$rules = array(
 		'name'    => 'required',
-		'description' => 'required|',
+		'description' => 'required',
 		);
 
 		// run the validation rules on the inputs from the form
@@ -65,14 +66,14 @@ public function doEditThisItem($id) {
 		return Redirect::to('item/edit/' . $id)
 			->withErrors($validator);
 	} else {
-		$item = Item::find(Input::get($id));
+		$item = Item::find($id);
 		$item->name = Input::get('name');
 		$item->description = Input::get('description');
 		$item->price = Input::get('price');
-		$item->date = Input::get('date');
+		//$item->date = Input::get('date');
 		$item->save();
 
-
+		return Redirect::to('/')->with('message', 'Item successfully updated.');
 	}
 }
 
@@ -101,6 +102,8 @@ public function doAddItem() {
 		$item->description = Input::get('description');
 		$item->price = Input::get('price');
 		$item->save();
+
+		return Redirect::to('/')->with('message', 'Item successfully added.');
 	}
 }
 

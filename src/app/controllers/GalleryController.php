@@ -36,7 +36,9 @@ public function showAddGallery() {
 *
 */
 public function showEditThisGallery($id) {
-	$this->layout->content = View::make('galleries.editThis');
+	$gallery = Gallery::find($id);
+	$this->layout->content = View::make('galleries.editThis')->with('id', $id)
+															 ->with('gallery', $gallery);
 }
 
 /*
@@ -63,7 +65,7 @@ public function doEditThisGallery($id) {
 		return Redirect::to('gallery/edit/' . $id)
 			->withErrors($validator);
 	} else {
-		$gallery = Gallery::find(Input::get($id));
+		$gallery = Gallery::find($id);
 		$gallery->name = Input::get('name');
 		$gallery->description = Input::get('description');
 		$gallery->save();

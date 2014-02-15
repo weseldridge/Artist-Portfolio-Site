@@ -30,7 +30,8 @@ public function showThisGroup($input) {
 *
 */
 public function showEditThisGroup($id) {
-	$this->layout->content = View::make('groups.editThis');
+	$group = Group::find($id);
+	$this->layout->content = View::make('groups.editThis')->with('id', $id)->with('group', $group);
 }
 
 /**
@@ -65,7 +66,7 @@ public function doEditThisGroup($id) {
 		return Redirect::to('group/edit/' . $id)
 			->withErrors($validator);
 	} else {
-		$group = Group::find(Input::get($id));
+		$group = Group::find($id);
 		$group->name = Input::get('name');
 		$group->description = Input::get('description');
 		$group->save();
