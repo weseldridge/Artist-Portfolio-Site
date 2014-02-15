@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-	<p>items this page</p>
+	<h1>{{ $item->name }} item</h1>
+	<p>{{ $item->description }}</p>
 </div>
 	
 @stop

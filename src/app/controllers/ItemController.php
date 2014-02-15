@@ -21,7 +21,8 @@ public function showItem() {
 *
 */
 public function showThisItem($id) {
-	$this->layout->content = View::make('items.thisItem');
+	$item = Item::find($id);
+	$this->layout->content = View::make('items.thisItem')->with('id', $id)->with('item', $item);
 }
 
 /**

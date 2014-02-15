@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-	<p>groups this page</p>
+	<h1>{{ $group->name }} Group</h1>
+	<p>{{ $group->description }}</p>
 </div>
 	
 @stop

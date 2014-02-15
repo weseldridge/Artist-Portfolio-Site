@@ -22,9 +22,25 @@ public function showGroup() {
 /**
 *
 */
-public function showThisGroup($input) {
-	$this->layout->content = View::make('groups.thisGroup');
+public function showThisGroupById($input) {
+	
+	$group = Group::find($input);
+	$id = $group->id;
+
+	$this->layout->content = View::make('groups.thisGroup')->with('id',$id)->with('group', $group);
 }
+
+/**
+*
+*/
+public function showThisGroupByName($input) {
+	
+	$group = Group::where('name', '=', $input);
+	$id = $group->id;
+
+	$this->layout->content = View::make('groups.thisGroup')->with('id',$id)->with('group', $group);
+}
+
 
 /**
 *

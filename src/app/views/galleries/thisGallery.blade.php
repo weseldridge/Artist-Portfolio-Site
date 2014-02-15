@@ -1,7 +1,8 @@
 @extends('layouts.master')
 
 @section('content')
-	<p>galleries this page</p>
+	<h1>{{ $gallery->name }} gallery</h1>
+	<p>{{ $gallery->description }}</p>
 </div>
 	
 @stop

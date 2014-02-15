@@ -21,8 +21,21 @@ public function showGallery() {
 /**
 *
 */
-public function showThisGallery($input) {
-	$this->layout->content = View::make('galleries.thisGallery');
+public function showThisGalleryById($input) {
+	$gallery = Gallery::find($input);
+	$id = $gallery->id;
+	$this->layout->content = View::make('galleries.thisGallery')->with('id', $id)
+															 	->with('gallery', $gallery);
+}
+
+/**
+*
+*/
+public function showThisGalleryByName($input) {
+	$gallery = Gallery::where('url_name','=', $input);
+	$id = $gallery->id;
+	$this->layout->content = View::make('galleries.thisGallery')->with('id', $id)
+															 	->with('gallery', $gallery);
 }
 
 /**
