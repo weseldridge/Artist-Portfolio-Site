@@ -34,11 +34,9 @@ class UserController extends BaseController {
 
 			// attempt to do the login
 			if (Auth::attempt($userdata)) {
-
-				// validation successful!
-				// redirect them to the secure section or whatever
-				// return Redirect::to('secure');
-				// for now we'll just echo success (even though echoing in a controller is bad)
+				$user = User::where('email','=',$userdata['email'])->firstOrFail();
+				Session::put('email', $userdata['email']);
+				Session::put('role', $user->role);
 				return Redirect::to('/')->with('msg', 'Successful logged in!');
 
 			} else {	 	
@@ -80,8 +78,10 @@ class UserController extends BaseController {
 	}
 
 	public function doLogout() {
+		Session::forget('email');
+		Session::forget('role');
 		Auth::logout();
-		return Redirect::to('users/login')->with('message', 'Your are now logged out!');
+		return Redirect::route('login')->with('message', 'Your are now logged out!');
 	}
 
 }

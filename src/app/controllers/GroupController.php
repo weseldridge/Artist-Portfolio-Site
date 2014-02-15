@@ -22,12 +22,13 @@ public function showGroup() {
 /**
 *
 */
-public function showThisGroupById($input) {
+public function showThisGroupById($id) {
 	
-	$group = Group::find($input);
-	$id = $group->id;
-
-	$this->layout->content = View::make('groups.thisGroup')->with('id',$id)->with('group', $group);
+	$group = Group::find($id);
+	$galleries = Group::find($id)->galleries;
+	$this->layout->content = View::make('groups.thisGroup')->with('id',$group->id)
+														   ->with('group', $group)
+														   ->with('galleries', $galleries);
 }
 
 /**
@@ -47,7 +48,8 @@ public function showThisGroupByName($input) {
 */
 public function showEditThisGroup($id) {
 	$group = Group::find($id);
-	$this->layout->content = View::make('groups.editThis')->with('id', $id)->with('group', $group);
+	$this->layout->content = View::make('groups.editThis')->with('id', $id)
+														  ->with('group', $group);
 }
 
 /**

@@ -24,9 +24,11 @@ public function showGallery() {
 */
 public function showThisGalleryById($input) {
 	$gallery = Gallery::find($input);
+	$items = Gallery::find($input)->items;
 	$id = $gallery->id;
 	$this->layout->content = View::make('galleries.thisGallery')->with('id', $id)
-															 	->with('gallery', $gallery);
+															 	->with('gallery', $gallery)
+															 	->with('items',$items);
 }
 
 /**
