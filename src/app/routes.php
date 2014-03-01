@@ -78,8 +78,18 @@ Route::get('group', array('uses' => 'GroupController@showGroup'));
 Route::get('group/{id}', array('uses' => 'GroupController@showThisGroupById'))->where('id', '[0-9]+');
 Route::get('group/{name}', array('uses' => 'GroupController@showThisGroupByName'))->where('name', '[A-Za-z0-9]+');
 
-
-
+/*
+* ----------------------------------------------------------------------------
+*							Admin Routes
+* ----------------------------------------------------------------------------
+*/
+// Admin Access Only
+Route::group(array('before' => 'admin_level_0'), function()
+{
+	Route::get('admin', array('uses' => 'AdminController@showAdmin'));
+	Route::get('admin/user', array('uses' => 'AdminController@showAdminUser'));
+	Route::post('admin/user', array('uses' => 'AdminController@doAdminUser'));
+});
 /*
 * ----------------------------------------------------------------------------
 *							Other Routes
@@ -100,5 +110,5 @@ Route::get('/', array('uses' => 'HomeController@showHome'));
 */
 Route::filter('admin_level_0', function()
 {
-  	if(Session::get('role') < 1) return Redirect::to('/');
+  	if(Session::get('role') < 1) return Redirect::to('login');
 });
