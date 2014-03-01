@@ -4,9 +4,9 @@ class Group extends Eloquent {
 
     protected $table = 'groups';
 
-    public function gallery()
+    public function gallerys()
     {
-    	return $this->belongsToMany('Galleries');
+    	return $this->hasMany('gallerys');
     }
 
 

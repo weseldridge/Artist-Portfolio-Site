@@ -4,9 +4,9 @@ class Item extends Eloquent {
 
     protected $table = 'items';
 
-    public function group()
+    public function gallery()
     {
-    	return $this->belongsToMany('Groups');
+        return $this->belongsTo('gallery');
     }
 
 }
