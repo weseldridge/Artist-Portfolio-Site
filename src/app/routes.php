@@ -99,6 +99,7 @@ Route::get('group/{name}', array('uses' => 'GroupController@showThisGroupByName'
 * ----------------------------------------------------------------------------
 */
 Route::get('/', array('uses' => 'HomeController@showHome'));
+Route::get('home', array('uses' => 'HomeController@showHome'));
 
 
 /*

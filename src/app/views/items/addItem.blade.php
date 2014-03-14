@@ -1,10 +1,13 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		{{ Form::open(array('url'=>'item/add', 'class'=>'form-signup', 'role'=>'form')) }}
-		<h2 class="form-signup-heading">Add a new item</h2>
+		<div class="content-header">
+			<span class="content-header-bar"></span>
+			<div class="content-title">{{{ $title }}}</div>
+		</div>
+		<div class="content-body">
+
+		{{ Form::open(array('url'=>'item/add', 'class'=>'pure-form pure-form-aligned', 'role'=>'form')) }}
 
 		<ul>
 			@foreach($errors->all() as $error)
@@ -12,24 +15,18 @@
 			@endforeach
 		</ul>
 
-		<div class="form-group">
-			<label for="name">Item Name</label>
-			{{ Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'Enter Item Name')) }}
+		<div class="pure-group">
+			{{ Form::text('name', null, array('class'=>'pure-input-1-2', 'placeholder'=>'Item Name')) }}
+		
+			{{ Form::text('description', null, array('class'=>'pure-input-1-2', 'placeholder'=>'Item Description')) }}
+		
+			{{ Form::text('price', null, array('class'=>'pure-input-1-2', 'placeholder'=>'price')) }}
 		</div>
-		<div class="form-group">
-			<label for="description">Item Description</label>
-			{{ Form::text('description', null, array('class'=>'form-control', 'placeholder'=>'Enter Item Description')) }}
-		</div>
-		<div class="form-group">
-			<label for="price">Price</label>
-			{{ Form::text('price', null, array('class'=>'form-control', 'placeholder'=>'Enter a price')) }}
-		</div>
-		<div class="form-group">
-			<label for="file">File</label>
+		<div class="pure-u-1 pure-u-med-1-3 form-undefined">
 			{{ Form::file('file') }}
 		</div>
 
-		<div class="form-group">
+		<div class="pure-u-1 pure-u-med-1-3 form-undefined">
 			<label for="">Belongs to Group: </label>
 			<select>
 				<option value="0">None</option>
@@ -42,10 +39,9 @@
 		</div>
 
 
-
-		{{ Form::submit('Add Item', array('class'=>'btn btn-large btn-primary btn-block'))}}
+		<span>
+			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Add Item</button>
+		</span>
 		{{ Form::close() }}
-	</div>
-</div>
 
 @stop
