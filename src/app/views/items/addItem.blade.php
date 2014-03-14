@@ -33,9 +33,11 @@
 			<label for="">Belongs to Group: </label>
 			<select>
 				<option value="0">None</option>
-				@foreach($galleries as $gallery)
-					<option value="{{ $gallery->id }}"> {{ $gallery->name }}</option>
-				@endforeach
+				@if($galleries)
+					@foreach($galleries as $gallery)
+						<option value="{{ $gallery->id }}"> {{ $gallery->name }}</option>
+					@endforeach
+				@endif
 			</select>
 		</div>
 

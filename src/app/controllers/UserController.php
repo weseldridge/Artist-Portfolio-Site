@@ -33,7 +33,7 @@ class UserController extends BaseController {
 			);
 
 			// attempt to do the login
-			if (Auth::attempt($userdata)) {
+			if (Auth::attempt($userdata, true)) {
 				$user = User::where('email','=',$userdata['email'])->firstOrFail();
 				Session::put('email', $userdata['email']);
 				Session::put('role', $user->role);

@@ -165,6 +165,10 @@ a {
 .main-content-header, .main-content-body, .main-content-footer {
     padding: 1em 2em;
 }
+    .main-content {
+        margin-left: 155px;
+        padding-left: 10px
+    }
     .main-content-header {
         border-bottom: 1px solid #ddd;
     }

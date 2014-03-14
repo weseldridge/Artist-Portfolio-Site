@@ -18,10 +18,10 @@
 						<li><a href="#">Users</a></li>
 						<li><a href="#">Site</a></li>
 						<li class="pure-menu-heading">Add New</li>
-						<li><a href="#"><span class="side-nav-label-personal"></span>Group</a></li>
-						<li><a href="#"><span class="side-nav-label-work"></span>Gallery</a></li>
-						<li><a href="#"><span class="side-nav-label-travel"></span>Item</a></li>
-						<li class="pure-menu-heading">Edit Current</li>
+						<li>{{ HTML::link('group/add', 'Group') }}</li>
+						<li>{{ HTML::link('gallery/add', 'Gallery') }}</li>
+						<li>{{ HTML::link('item/add', 'Item') }}</li>
+						<li class="pure-menu-heading">Edit</li>
 						<li><a href="#"><span class="side-nav-label-personal"></span>Group</a></li>
 						<li><a href="#"><span class="side-nav-label-work"></span>Gallery</a></li>
 						<li><a href="#"><span class="side-nav-label-travel"></span>Item</a></li>
@@ -46,7 +46,7 @@
 					<button class="secondary-button pure-button">Button 3</button>
 				</div>
 				<div class="main-content-body">
-					This is the body!
+					@yield('content')
 				</div>
 			</div>
 		</div>

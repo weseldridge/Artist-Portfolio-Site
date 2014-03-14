@@ -2,6 +2,7 @@
 
 class AdminController extends BaseController {
 
+	protected $layout = 'layouts.admin';
 	/*
 	* ----------------------------------------------------------------------------
 	* ----------------------------------------------------------------------------
@@ -89,7 +90,7 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function showAddItem() {
-		$this->layout->content = View::make('items.addItem');
+		$this->layout->content = View::make('items.addItem')->with('galleries', false);
 	}
 
 

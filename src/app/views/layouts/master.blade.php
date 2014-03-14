@@ -5,8 +5,8 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
 	<title>untitled</title>
 	<link rel="stylesheet" href="{{ URL::asset('assets/css/normalize.css') }}" />
-	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css">
-	<!-- <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.min.css') }}" /> -->
+	<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure-min.css"> -->
+	<link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.min.css') }}" />
 	<link rel="stylesheet" href="{{ URL::asset('assets/css/main.css') }}" />
 </head>
 <body>
