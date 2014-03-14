@@ -24,7 +24,7 @@
 		</div>--}}
 
 		<span class="content-form-submit">
-			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Add Item</button>
+			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Add Gallery</button>
 		</span>
 		{{ Form::close() }}
 	</div>
