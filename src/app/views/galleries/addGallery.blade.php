@@ -1,33 +1,31 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		{{ Form::open(array('url'=>'gallery/add', 'class'=>'form-signup', 'role'=>'form')) }}
-		<h2 class="form-signup-heading">Add Gallery</h2>
+	<div class="content-header">
+		<span class="content-header-bar"></span>
+		<div class="content-title">{{{ $title }}}</div>
+	</div>
+	<div class="content-body">
+		{{ Form::open(array('url'=>'gallery/add', 'class'=>'pure-form pure-form-aligned', 'role'=>'form')) }}
 
 		<ul>
 			@foreach($errors->all() as $error)
 			<li>{{ $error }}</li>
 			@endforeach
 		</ul>
+			<div class="pure-group">
+				{{ Form::text('name', null, array('class'=>'pure-input-1-2', 'placeholder'=>'Gallery Name')) }}
 
-		<div class="form-group">
-			<label for="name">Gallery Name</label>
-			{{ Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'Enter Item Name')) }}
-		</div>
-		<div class="form-group">
-			<label for="description">Gallery Description</label>
-			{{ Form::text('description', null, array('class'=>'form-control', 'placeholder'=>'Enter Item Description')) }}
-		</div>
+				{{ Form::text('description', null, array('class'=>'pure-input-1-2', 'placeholder'=>'Gallery Description')) }}
+			</div>
 		{{--<div class="form-group">
 			<label for="price">Image</label>
 			{{ Form::file('img') }}
 		</div>--}}
 
-		{{ Form::submit('Add Gallery', array('class'=>'btn btn-large btn-primary btn-block'))}}
+		<span class="content-form-submit">
+			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Add Item</button>
+		</span>
 		{{ Form::close() }}
 	</div>
-</div>
-
 @stop

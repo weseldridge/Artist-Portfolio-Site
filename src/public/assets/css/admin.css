@@ -192,6 +192,9 @@ a {
 .content-header-right-nav li {
     display: inline-block;
 }
+.content-form-submit {
+    margin-top: 10px;
+}
 
 
 
