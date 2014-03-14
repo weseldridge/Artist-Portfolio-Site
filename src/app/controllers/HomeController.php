@@ -2,9 +2,7 @@
 
 class HomeController extends BaseController {
 
-
 protected $layout = 'layouts.master';
-
 /*
 * ----------------------------------------------------------------------------
 *							GET METHODS

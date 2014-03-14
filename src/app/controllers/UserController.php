@@ -4,7 +4,7 @@ class UserController extends BaseController {
 
 	protected $layout = 'layouts.master';
 
-
+	
 	public function showLogin(){
 		$this->layout->content = View::make('users.login');
 	}

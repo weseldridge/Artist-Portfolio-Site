@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
 <div class="row">
@@ -25,9 +25,20 @@
 			{{ Form::text('price', null, array('class'=>'form-control', 'placeholder'=>'Enter a price')) }}
 		</div>
 		<div class="form-group">
-			<label for="date">File</label>
+			<label for="file">File</label>
 			{{ Form::file('file') }}
 		</div>
+
+		<div class="form-group">
+			<label for="">Belongs to Group: </label>
+			<select>
+				<option value="0">None</option>
+				@foreach($galleries as $gallery)
+					<option value="{{ $gallery->id }}"> {{ $gallery->name }}</option>
+				@endforeach
+			</select>
+		</div>
+
 
 
 		{{ Form::submit('Add Item', array('class'=>'btn btn-large btn-primary btn-block'))}}

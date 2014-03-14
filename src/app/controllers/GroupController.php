@@ -2,9 +2,7 @@
 
 class GroupController extends BaseController {
 
-
 protected $layout = 'layouts.master';
-
 /*
 * ----------------------------------------------------------------------------
 *							GET METHODS
@@ -48,15 +46,18 @@ public function showThisGroupByName($input) {
 */
 public function showEditThisGroup($id) {
 	$group = Group::find($id);
+	$items = Item::all();
 	$this->layout->content = View::make('groups.editThis')->with('id', $id)
-														  ->with('group', $group);
+														  ->with('group', $group)
+														  ->with('items', $items);
 }
 
 /**
 *
 */
 public function showAddGroup() {
-	$this->layout->content = View::make('groups.addGroup');
+	$items = Item::all();
+	$this->layout->content = View::make('groups.addGroup')->with('items', $items);
 }
 
 /*

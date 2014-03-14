@@ -8,10 +8,49 @@
 	<link rel="stylesheet" href="{{ URL::asset('assets/css/admin.css') }}" />
 </head>
 <body>
-	<div class="container">
-		@yield('content')
+	<div id="layout" class="content pure-g">
+		<div id="nav" class="pure-u">
+			<div class="nav-inner">
+				<div class="pure-menu pure-menu-open">
+					<ul>
+						<li class="pure-menu-heading">Settings</li>
+						<li><a href="#">Account</a></li>
+						<li><a href="#">Users</a></li>
+						<li><a href="#">Site</a></li>
+						<li class="pure-menu-heading">Add New</li>
+						<li><a href="#"><span class="side-nav-label-personal"></span>Group</a></li>
+						<li><a href="#"><span class="side-nav-label-work"></span>Gallery</a></li>
+						<li><a href="#"><span class="side-nav-label-travel"></span>Item</a></li>
+						<li class="pure-menu-heading">Edit Current</li>
+						<li><a href="#"><span class="side-nav-label-personal"></span>Group</a></li>
+						<li><a href="#"><span class="side-nav-label-work"></span>Gallery</a></li>
+						<li><a href="#"><span class="side-nav-label-travel"></span>Item</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<script src="http://yui.yahooapis.com/3.14.1/build/yui/yui-min.js"></script>
+	<div id="main" class="pure-u-1">
+		<div class="main-content">
+			<div class="main-conent-header pure-g">
+				<div class="pure-u-1-2">
+					<h1 class="main-content-title">Welcome Home... Admin</h1>
+					<p class="main-content-subtile">
+						Last login in time .... Today
+					</p>
+				</div>
+				<div class="main-content-controls pure-u-1-2">
+					<button class="secondary-button pure-button">Button 1</button>
+					<button class="secondary-button pure-button">Button 2</button>
+					<button class="secondary-button pure-button">Button 3</button>
+				</div>
+				<div class="main-content-body">
+					This is the body!
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

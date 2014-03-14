@@ -2,9 +2,7 @@
 
 class GalleryController extends BaseController {
 
-
-protected $layout = 'layouts.master';
-
+	protected $layout = 'layouts.master';
 /*
 * ----------------------------------------------------------------------------
 *							GET METHODS
