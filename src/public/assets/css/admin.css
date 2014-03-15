@@ -155,7 +155,12 @@ a {
 }
 .content-body {
     max-width: 100%;
+    padding-top: 50px;
     margin: 0 auto;
+}
+.content-body-table table {
+    margin-left: 50px;
+
 }
 
 .content-header {
@@ -194,6 +199,16 @@ a {
 }
 .content-form-submit {
     margin-top: 10px;
+}
+
+.content-empty {
+    padding-left: 20px;
+    padding-top:  10px;
+}
+
+.content-empty h1 {
+    max-width: 0 auto;
+    display: inline-block;
 }
 
 

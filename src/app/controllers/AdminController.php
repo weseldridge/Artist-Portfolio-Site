@@ -47,8 +47,8 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function showAllGroup() {
-		$items = Item::all();
-		$this->layout->content = View::make('groups.allGroup')->with('items', $items)
+		$group = Group::all();
+		$this->layout->content = View::make('groups.allGroup')->with('groups', $group)
 															  ->with('title','All Group');
 	}
 
@@ -159,7 +159,8 @@ class AdminController extends BaseController {
 			$group->description = Input::get('description');
 			$group->save();
 
-			return Redirect::to('/')->with('message', 'Group successfully updated.');
+			return Redirect::to('group/all')->with('message', 'Group successfully updated.')
+											->with('title', 'All Group');
 		}
 
 	}
@@ -186,7 +187,8 @@ class AdminController extends BaseController {
 		    $group->description = Input::get('description');
 		    $group->save();
 
-		    return Redirect::to('/')->with('message', 'Group successfully added.');
+		    return Redirect::to('group/all')->with('message', 'Group successfully added.')
+		    								->with('title', 'All Group');
 		}
 	}
 
@@ -219,7 +221,8 @@ class AdminController extends BaseController {
 			$gallery->description = Input::get('description');
 			$gallery->save();
 
-			return Redirect::to('/')->with('message', 'Gallery successfully updated.');
+			return Redirect::to('gallery/all')->with('message', 'Gallery successfully updated.')
+											  ->with('title', 'All Gallery');
 		}
 	}
 
@@ -244,7 +247,8 @@ class AdminController extends BaseController {
 		    $gallery->description = Input::get('description');
 		    $gallery->save();
 
-		    return Redirect::to('/')->with('message', 'Gallery successfully added.');
+		    return Redirect::to('gallery/all')->with('message', 'Gallery successfully added.')
+		    								  ->with('title', 'All Gallery');
 		}
 	}
 
@@ -282,7 +286,8 @@ class AdminController extends BaseController {
 			//$item->date = Input::get('date');
 			$item->save();
 
-			return Redirect::to('/')->with('message', 'Item successfully updated.');
+			return Redirect::to('item/all')->with('message', 'Item successfully updated.')
+										   ->with('title', 'All Item');
 		}
 	}
 
@@ -312,7 +317,8 @@ class AdminController extends BaseController {
 			$item->price = Input::get('price');
 			$item->save();
 
-			return Redirect::to('/')->with('message', 'Item successfully added.');
+			return Redirect::to('item/all')->with('message', 'Item successfully added.')
+										   ->with('title', 'All Item');
 		}
 	}
 
