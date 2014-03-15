@@ -22,7 +22,6 @@
 			{{ Form::file('file') }}
 		</div> --}}
 
-
 		<span>
 			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Add Group</button>
 		</span>

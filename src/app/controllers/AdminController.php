@@ -36,10 +36,8 @@ class AdminController extends BaseController {
 	*/
 	public function showEditThisGroup($id) {
 		$group = Group::find($id);
-		$items = Item::all();
 		$this->layout->content = View::make('groups.editThis')->with('id', $id)
 															  ->with('group', $group)
-															  ->with('items', $items)
 															  ->with('title','Edit This Group');
 	}
 
@@ -49,7 +47,7 @@ class AdminController extends BaseController {
 	public function showAllGroup() {
 		$group = Group::all();
 		$this->layout->content = View::make('groups.allGroup')->with('groups', $group)
-															  ->with('title','All Group');
+															  ->with('title','All Groups');
 	}
 
 	/**
@@ -71,7 +69,7 @@ class AdminController extends BaseController {
 	*/
 	public function showAllGallery() {
 		$galleries = Gallery::all();
-		$this->layout->content = View::make('galleries.allGallery')->with('title','All Gallery')
+		$this->layout->content = View::make('galleries.allGallery')->with('title','All Galleries')
 																   ->with('galleries', $galleries);
 	}
 
@@ -79,7 +77,9 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function showAddGallery() {
-		$this->layout->content = View::make('galleries.addGallery')->with('title','Add a New Gallery');
+		$groups = Group::all();
+		$this->layout->content = View::make('galleries.addGallery')->with('title','Add a New Gallery')
+																   ->with('groups', $groups);
 	}
 
 	/**
@@ -102,7 +102,7 @@ class AdminController extends BaseController {
 	*/
 	public function showAllItem() {
 		$items = Item::all();
-		$this->layout->content = View::make('items.allItem')->with('title', 'All Item')
+		$this->layout->content = View::make('items.allItem')->with('title', 'All Items')
 															->with('items', $items);
 	}
 
@@ -110,7 +110,9 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function showAddItem() {
-		$this->layout->content = View::make('items.addItem')->with('galleries', false)->with('title', 'Add a New Item');
+		$galleries = Gallery::all();
+		$this->layout->content = View::make('items.addItem')->with('galleries', $galleries)
+															->with('title', 'Add a New Item');
 	}
 	/**
 	*
@@ -249,6 +251,7 @@ class AdminController extends BaseController {
 			$gallery = new Gallery;
 		    $gallery->name = Input::get('name');
 		    $gallery->description = Input::get('description');
+		    $gallery->groups_id = Input::get('group_id');
 		    $gallery->save();
 
 		    return Redirect::to('gallery/all')->with('message', 'Gallery successfully added.')
@@ -287,6 +290,7 @@ class AdminController extends BaseController {
 			$item->name = Input::get('name');
 			$item->description = Input::get('description');
 			$item->price = Input::get('price');
+			$item->gallery_id = Input::get('gallery_id');
 			//$item->date = Input::get('date');
 			$item->save();
 
@@ -319,6 +323,7 @@ class AdminController extends BaseController {
 			$item->name = Input::get('name');
 			$item->description = Input::get('description');
 			$item->price = Input::get('price');
+			$item->gallery_id = Input::get('gallery_id');
 			$item->save();
 
 			return Redirect::to('item/all')->with('message', 'Item successfully added.')

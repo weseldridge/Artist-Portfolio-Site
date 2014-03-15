@@ -26,8 +26,8 @@
 		</div>
 
 		<div class="pure-u-1 pure-u-med-1-3 form-undefined">
-			<label for="">Belongs to Group: </label>
-			<select>
+			<label for="">Belongs to Gallery: </label>
+			<select name="gallery_id">
 				<option value="0">None</option>
 				@if($galleries)
 					@foreach($galleries as $gallery)
