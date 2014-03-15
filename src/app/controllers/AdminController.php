@@ -11,18 +11,18 @@ class AdminController extends BaseController {
 	* ----------------------------------------------------------------------------
 	*/
 
-	/**
-	*
-	*/
-	public function showAdmin(){;
-		$this->layout->content = View::make('admins.main');
+	public function showAdminSettingsSite() {
+		$this->layout->content = View::make('admins.site')->with('title','Site Settings')->with('title','Site Settings');
 	}
 
-	/**
-	*
-	*/
-	public function showAdminUser(){
-		$this->layout->content = View::make('admins.user');
+	public function showAdminSettingsUser() {
+		$this->layout->content = View::make('admins.user')->with('title','Users Settings')->with('title','User Settings');
+															  
+	}
+
+	public function showAdminHome() {
+		$this->layout->content = View::make('admins.main')->with('title','Users Settings')->with('title','Admin Home');
+															  
 	}
 
 	/*

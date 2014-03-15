@@ -14,13 +14,13 @@
 			<div class="nav-inner">
 				<div class="pure-menu pure-menu-open">
 					<ul>
-						<li><a href="#">Inbox</a></li>
-						<li><a href="#">Admin Home</a></li>
-						<li><a href="#">Main Site</a></li>
-						<li><a href="#">Logout</a></li>
+						<li>{{ HTML::link('inbox', 'Inbox') }}</li>
+						<li>{{ HTML::link('admin', 'Admin Home') }}</li>
+						<li>{{ HTML::link('home', 'Main Site') }}</li>
+						<li>{{ HTML::link('logout', 'Log Out') }}</li>
 						<li class="pure-menu-heading">Settings</li>
-						<li><a href="#">Users</a></li>
-						<li><a href="#">Site</a></li>
+						<li>{{ HTML::link('admin/settings/user', 'User') }}</li>
+						<li>{{ HTML::link('admin/settings/site', 'Site') }}</li>
 						<li class="pure-menu-heading">Add New</li>
 						<li>{{ HTML::link('group/add', 'Group') }}</li>
 						<li>{{ HTML::link('gallery/add', 'Gallery') }}</li>

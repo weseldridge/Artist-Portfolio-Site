@@ -64,14 +64,21 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::post('group/add', array('uses' => 'AdminController@doAddGroup'));
 	Route::get('group/edit/{id}', array('uses' => 'AdminController@showEditThisGroup'))->where('id', '[0-9]+');
 	Route::post('group/edit/{id}', array('uses' => 'AdminController@doEditThisGroup'))->where('id', '[0-9]+');
-
+	/*
+	* ---------------------------------------------------------------------
+	*							Group Admin Routes
+	* ---------------------------------------------------------------------
+	*/
+	Route::get('url/all', array('uses' => 'UrlController@showAllURL'));
+	Route::get('url/add', array('uses' => 'UrlController@showAddURL'));
+	Route::get('url/edit/{id}', array('uses' => 'UrlController@showEditThisURL'))->where('id', '[0-9]+');
 	/*
 	* ----------------------------------------------------------------------------
 	*							Other Routes
 	* ----------------------------------------------------------------------------
 	*/
 	Route::get('admin', array('uses' => 'AdminController@showAdminHome'));
-	Route::get('admin/inbox', array('uses' => 'AdminController@showAdminInbox'));
+	Route::get('inbox', array('uses' => 'inboxController@showInbox'));
 	Route::get('admin/settings/site', array('uses' => 'AdminController@showAdminSettingsSite'));
 	Route::get('admin/settings/user', array('uses' => 'AdminController@showAdminSettingsUser'));
 });
