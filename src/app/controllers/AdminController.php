@@ -70,7 +70,9 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function showAllGallery() {
-		$this->layout->content = View::make('galleries.allGallery')->with('title','All Gallery');
+		$galleries = Gallery::all();
+		$this->layout->content = View::make('galleries.allGallery')->with('title','All Gallery')
+																   ->with('galleries', $galleries);
 	}
 
 	/**
@@ -99,7 +101,9 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function showAllItem() {
-		$this->layout->content = View::make('items.allItem')->with('title', 'All Item');
+		$items = Item::all();
+		$this->layout->content = View::make('items.allItem')->with('title', 'All Item')
+															->with('items', $items);
 	}
 
 	/**
