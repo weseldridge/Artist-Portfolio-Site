@@ -39,6 +39,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	*							Item Admin Routes
 	* ---------------------------------------------------------------------
 	*/
+	Route::get('item/all', array('uses' => 'AdminController@showAllItem'));
 	Route::get('item/edit/{id}', array('uses' => 'AdminController@showEditItem'));
 	Route::post('item/edit/{id}', array('uses' => 'AdminController@doEditItem'));
 	Route::get('item/add', array('uses' => 'AdminController@showAddItem'));
@@ -48,6 +49,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	*							Gallery Admin Routes
 	* ---------------------------------------------------------------------
 	*/
+	Route::get('gallery/all', array('uses' => 'AdminController@showAllGallery'));
 	Route::get('gallery/add', array('uses' => 'AdminController@showAddGallery'));
 	Route::post('gallery/add', array('uses' => 'AdminController@doAddGallery'));
 	Route::get('gallery/edit/{id}', array('uses' => 'AdminController@showEditThisGallery'))->where('id', '[0-9]+');
@@ -57,6 +59,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	*							Group Admin Routes
 	* ---------------------------------------------------------------------
 	*/
+	Route::get('group/all', array('uses' => 'AdminController@showAllGroup'));
 	Route::get('group/add', array('uses' => 'AdminController@showAddGroup'));
 	Route::post('group/add', array('uses' => 'AdminController@doAddGroup'));
 	Route::get('group/edit/{id}', array('uses' => 'AdminController@showEditThisGroup'))->where('id', '[0-9]+');

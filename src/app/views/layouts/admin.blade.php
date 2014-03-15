@@ -27,9 +27,9 @@
 						<li>{{ HTML::link('gallery/add', 'Gallery') }}</li>
 						<li>{{ HTML::link('item/add', 'Item') }}</li>
 						<li class="pure-menu-heading">Edit</li>
-						<li><a href="#"></span>Group</a></li>
-						<li><a href="#">Gallery</a></li>
-						<li><a href="#">Item</a></li>
+						<li>{{ HTML::link('group/all', 'Group') }}</li>
+						<li>{{ HTML::link('gallery/all', 'Gallery') }}</li>
+						<li>{{ HTML::link('item/all', 'Item') }}</li>
 					</ul>
 				</div>
 			</div>
