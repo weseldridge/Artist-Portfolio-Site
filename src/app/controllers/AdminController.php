@@ -87,9 +87,11 @@ class AdminController extends BaseController {
 	*/
 	public function showEditThisGallery($id) {
 		$gallery = Gallery::find($id);
+		$groups = Group::all();
 		$this->layout->content = View::make('galleries.editThis')->with('id', $id)
 																 ->with('gallery', $gallery)
-																 ->with('title','Edith This Gallery');
+																 ->with('groups', $groups)
+																 ->with('title','Edith This Gallery - ');
 	}
 
 	/*
@@ -119,8 +121,10 @@ class AdminController extends BaseController {
 	*/
 	public function showEditThisItem($id) {
 		$item = Item::find($id);
+		$galleries = Gallery::all();
 		$this->layout->content = View::make('items.editThis')->with('id', $id)
 															 ->with('item', $item)
+															 ->with('galleries', $galleries)
 															 ->with('title','Edit This Item');
 	}
 

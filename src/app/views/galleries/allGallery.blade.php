@@ -26,7 +26,7 @@
 				    	@foreach($galleries as $grallery)
 					        <tr>
 					        	
-					        	<td>{{ HTML::link('group/edit/' . $grallery->id, $grallery->name) }}</td>
+					        	<td>{{ HTML::link('gallery/edit/' . $grallery->id, $grallery->name) }}</td>
 					        	<td>{{ $grallery->description }}</td>
 					        	<td>{{ $grallery->is_active }}</td>
 					        	<td>X</td>

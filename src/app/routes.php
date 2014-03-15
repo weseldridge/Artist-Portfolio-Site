@@ -40,8 +40,8 @@ Route::group(array('before' => 'admin_level_0'), function()
 	* ---------------------------------------------------------------------
 	*/
 	Route::get('item/all', array('uses' => 'AdminController@showAllItem'));
-	Route::get('item/edit/{id}', array('uses' => 'AdminController@showEditItem'));
-	Route::post('item/edit/{id}', array('uses' => 'AdminController@doEditItem'));
+	Route::get('item/edit/{id}', array('uses' => 'AdminController@showEditThisItem'));
+	Route::post('item/edit/{id}', array('uses' => 'AdminController@doEditThisItem'));
 	Route::get('item/add', array('uses' => 'AdminController@showAddItem'));
 	Route::post('item/add', array('uses' => 'AdminController@doAddItem'));
 	/*
@@ -64,6 +64,16 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::post('group/add', array('uses' => 'AdminController@doAddGroup'));
 	Route::get('group/edit/{id}', array('uses' => 'AdminController@showEditThisGroup'))->where('id', '[0-9]+');
 	Route::post('group/edit/{id}', array('uses' => 'AdminController@doEditThisGroup'))->where('id', '[0-9]+');
+
+	/*
+	* ----------------------------------------------------------------------------
+	*							Other Routes
+	* ----------------------------------------------------------------------------
+	*/
+	Route::get('admin', array('uses' => 'AdminController@showAdminHome'));
+	Route::get('admin/inbox', array('uses' => 'AdminController@showAdminInbox'));
+	Route::get('admin/settings/site', array('uses' => 'AdminController@showAdminSettingsSite'));
+	Route::get('admin/settings/user', array('uses' => 'AdminController@showAdminSettingsUser'));
 });
 
 /*

@@ -1,28 +1,28 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="row">
-	<div class="col-md-4 col-md-offset-4">
-		{{ Form::model($group, array('url'=>'group/edit/' . $id, 'class'=>'form-signup', 'role'=>'form')) }}
-		<h2 class="form-signup-heading">Edit Group</h2>
+	<div class="content-header">
+		<span class="content-header-bar"></span>
+		<div class="content-title">{{{ $title . ' - ' . $group->name}}}</div>
+	</div>
+	<div class="content-body">
+		{{ Form::model($group, array('url'=>'group/edit/' . $id, 'class'=>'pure-form pure-form-aligned', 'role'=>'form')) }}
 
 		<ul>
 			@foreach($errors->all() as $error)
 			<li>{{ $error }}</li>
 			@endforeach
 		</ul>
+		<div class="pure-group">
+			{{ Form::text('name', null, array('class'=>'pure-input-1-2', 'value' => $group->name)) }}
 
-		<div class="form-group">
-			<label for="name">Group Name</label>
-			{{ Form::text('name', null, array('class'=>'form-control')) }}
-		</div>
-		<div class="form-group">
-			<label for="description">Group Description</label>
-			{{ Form::text('description', null, array('class'=>'form-control')) }}
+			{{ Form::text('description', null, array('class'=>'pure-input-1-2', 'value' => $group->description)) }}
 		</div>
 
-		{{ Form::submit('Update Group', array('class'=>'btn btn-large btn-primary btn-block'))}}
+		<span>
+			<button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Update Group</button>
+		</span>
 		{{ Form::close() }}
 	</div>
-</div>
+
 @stop

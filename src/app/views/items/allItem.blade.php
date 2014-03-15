@@ -26,7 +26,7 @@
 				    	@foreach($items as $item)
 					        <tr>
 					        	
-					        	<td>{{ HTML::link('group/edit/' . $item->id, $item->name) }}</td>
+					        	<td>{{ HTML::link('item/edit/' . $item->id, $item->name) }}</td>
 					        	<td>{{ $item->description }}</td>
 					        	<td>{{ $item->is_active }}</td>
 					        	<td>X</td>

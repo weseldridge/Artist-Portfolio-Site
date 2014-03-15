@@ -19,17 +19,18 @@
 						<li><a href="#">Main Site</a></li>
 						<li><a href="#">Logout</a></li>
 						<li class="pure-menu-heading">Settings</li>
-						<li><a href="#">Account</a></li>
 						<li><a href="#">Users</a></li>
 						<li><a href="#">Site</a></li>
 						<li class="pure-menu-heading">Add New</li>
 						<li>{{ HTML::link('group/add', 'Group') }}</li>
 						<li>{{ HTML::link('gallery/add', 'Gallery') }}</li>
 						<li>{{ HTML::link('item/add', 'Item') }}</li>
+						<li>{{ HTML::link('url/add', 'URL') }}</li>
 						<li class="pure-menu-heading">Edit</li>
 						<li>{{ HTML::link('group/all', 'Group') }}</li>
 						<li>{{ HTML::link('gallery/all', 'Gallery') }}</li>
 						<li>{{ HTML::link('item/all', 'Item') }}</li>
+						<li>{{ HTML::link('url/all', 'URL') }}</li>
 					</ul>
 				</div>
 			</div>
