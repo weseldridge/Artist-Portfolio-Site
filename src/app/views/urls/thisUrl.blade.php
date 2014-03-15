@@ -6,6 +6,6 @@
 		<div class="content-title">{{{ $title }}}</div>
 	</div>
 	<div class="content-body">
-
+		
 	</div>
 @stop

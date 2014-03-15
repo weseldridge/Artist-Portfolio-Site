@@ -66,11 +66,13 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::post('group/edit/{id}', array('uses' => 'AdminController@doEditThisGroup'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
-	*							Group Admin Routes
+	*							URL Admin Routes
 	* ---------------------------------------------------------------------
 	*/
 	Route::get('url/all', array('uses' => 'UrlController@showAllURL'));
 	Route::get('url/add', array('uses' => 'UrlController@showAddURL'));
+	Route::post('url/add', array('uses' => 'UrlController@doAddURL'));
+	Route::post('url/edit/{id}', array('uses' => 'UrlController@doEditThisURL'));
 	Route::get('url/edit/{id}', array('uses' => 'UrlController@showEditThisURL'))->where('id', '[0-9]+');
 	/*
 	* ----------------------------------------------------------------------------
