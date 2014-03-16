@@ -80,7 +80,8 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::get('url/add', array('uses' => 'UrlController@showAddURL'));
 	Route::post('url/add', array('uses' => 'UrlController@doAddURL'));
 	Route::post('url/edit/{id}', array('uses' => 'UrlController@doEditThisURL'))->where('id', '[0-9]+');
-	Route::get('url/toggle/{id}', array('uses' => 'UrlController@showEditThisURL'))->where('id', '[0-9]+');
+	Route::get('url/toggle/{id}', array('uses' => 'UrlController@doToggleURL'))->where('id', '[0-9]+');
+	Route::get('url/delete/{id}', array('uses' => 'UrlController@doDeleteURL'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
 	*							Inbox Routes

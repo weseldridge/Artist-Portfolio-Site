@@ -48,6 +48,38 @@ class UrlController extends BaseController {
 	}
 
 
+	/**
+	*
+	*
+	* @param void
+	* @return void
+	*/
+	public function doToggleURL($id)
+	{
+		$url = CustUrl::find($id);
+		if($url->is_active){
+			$url->is_active = 0;
+		} else {
+			$url->is_active = 1;
+		}
+		$url->save();
+
+		return Redirect::to('url/all');
+	}
+
+	/**
+	*
+	*
+	* @param void
+	* @return void
+	*/
+	public function doDeleteURL($id)
+	{
+		$url = CustUrl::find($id);
+		$url->delete();
+		return Redirect::to('url/all');
+	}
+
 	/*
 	* ----------------------------------------------------------------------------
 	*							POST METHODS
