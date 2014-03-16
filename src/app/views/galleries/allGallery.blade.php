@@ -12,7 +12,7 @@
 			</div>
 		@else
 			<span class="content-body-table">
-				<table class="pure-table">
+				<table class="pure-table pure-table-horizontal">
 				    <thead>
 				        <tr>
 				            <th>Name</th>
@@ -23,13 +23,21 @@
 				    </thead>
 
 				    <tbody>
-				    	@foreach($galleries as $grallery)
+				    	@foreach($galleries as $gallery)
 					        <tr>
-					        	
-					        	<td>{{ HTML::link('gallery/edit/' . $grallery->id, $grallery->name) }}</td>
-					        	<td>{{ $grallery->description }}</td>
-					        	<td>{{ $grallery->is_active }}</td>
-					        	<td>X</td>
+
+					        	<td>{{ HTML::link('gallery/edit/' . $gallery->id, $gallery->name) }}</td>
+					        	<td>{{ $gallery->description }}</td>
+										<td>
+										<span class="center">
+											@if($gallery->is_active)
+												<a class="is-active" href="{{ URL::to('gallery/toggle/' . $gallery->id) }}"><i class="fa fa-check-circle-o"></i></a>
+											@else
+												<a class="is-not-active" href="{{ URL::to('gallery/toggle/' . $gallery->id) }}"><i class="fa fa-times-circle-o"></i></a>
+											@endif
+										</span>
+									</td>
+									<td><a class="remove" href="{{ URL::to('gallery/delete/' . $gallery->id) }}"><i class="fa fa-times-circle-o"></i></a></td>
 					        </tr>
 				        @endforeach
 				    </tbody>

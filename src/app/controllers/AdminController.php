@@ -119,6 +119,31 @@ class AdminController extends BaseController {
 																 ->with('title','Edith This Gallery - ');
 	}
 
+	/**
+	*
+	*/
+	public function doToggleGallery($id) {
+		$gallery = Gallery::find($id);
+		if($gallery->is_active) {
+			$gallery->is_active = 0;
+		} else {
+			$gallery->is_active = 1;
+		}
+		$gallery->save();
+
+		return Redirect::to('gallery/all');
+	}
+
+	/**
+	*
+	*/
+	public function doDeleteGallery($id) {
+		$gallery = Gallery::find($id);
+		$gallery->delete();
+
+		return Redirect::to('gallery/all');
+	}
+
 	/*
 	* ----------------------------------------------------------------------------
 	*							ITEM METHODS

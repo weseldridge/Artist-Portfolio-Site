@@ -57,6 +57,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::get('gallery/edit/{id}', array('uses' => 'AdminController@showEditThisGallery'))->where('id', '[0-9]+');
 	Route::post('gallery/edit/{id}', array('uses' => 'AdminController@doEditThisGallery'))->where('id', '[0-9]+');
 	Route::get('gallery/toggle/{id}', array('uses' => 'AdminController@doToggleGallery'))->where('id', '[0-9]+');
+	Route::get('gallery/delete/{id}', array('uses' => 'AdminController@doDeleteGallery'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
 	*							Group Admin Routes
