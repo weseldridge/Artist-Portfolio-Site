@@ -58,6 +58,31 @@ class AdminController extends BaseController {
 		$this->layout->content = View::make('groups.addGroup')->with('title','Add a New Group');
 	}
 
+	/**
+	*
+	*/
+	public function doToggleGroup($id){
+		$group = Group::find($id);
+		if($group->is_active) {
+			$group->is_active = 0;
+		} else {
+			$group->is_active = 1;
+		}
+		$group->save();
+
+		return Redirect::to('group/all');
+	}
+
+	/**
+	*
+	*/
+	public function doDeleteGroup($id) {
+		$group = Group::find($id);
+		$group->delete();
+
+		return Redirect::to('group/all');
+	}
+
 	/*
 	* ----------------------------------------------------------------------------
 	*							Gallery METHODS

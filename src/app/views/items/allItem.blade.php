@@ -35,6 +35,7 @@
 												@else
 													<a class="is-not-active" href="{{ URL::to('item/toggle/' . $item->id) }}"><i class="fa fa-times-circle-o"></i></a>
 												@endif
+											</td>
 						        	<td><a class="remove" href="{{ URL::to('item/delete/' . $item->id) }}"><i class="fa fa-times-circle-o"></i></a></td>
 						        </tr>
 					        @endforeach

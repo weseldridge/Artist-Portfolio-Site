@@ -284,6 +284,12 @@ a {
   color:gray;
 }
 
+.center {
+  margin: 0 auto;
+  text-align:center;
+  width: 100%;
+}
+
 
 
 /* side-nav Item Styles */

@@ -68,6 +68,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::get('group/edit/{id}', array('uses' => 'AdminController@showEditThisGroup'))->where('id', '[0-9]+');
 	Route::post('group/edit/{id}', array('uses' => 'AdminController@doEditThisGroup'))->where('id', '[0-9]+');
 	Route::get('group/toggle/{id}', array('uses' => 'AdminController@doToggleGroup'))->where('id', '[0-9]+');
+	Route::get('group/delete/{id}', array('uses' => 'AdminController@doDeleteGroup'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
 	*							URL Admin Routes
