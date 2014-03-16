@@ -6,7 +6,7 @@
 		<div class="content-title">{{{ $title }}}</div>
 	</div>
 	<div class="content-body">
-		@if(!$urls)
+		@if(count($urls) < 1)
 			<div class="content-empty">
 				<h1>You have not created any URLs</h1>
 			</div>
@@ -25,7 +25,7 @@
 				    <tbody>
 				    	@foreach($urls as $url)
 					        <tr>
-					        	
+
 					        	<td>{{ HTML::link('url/edit/' . $url->id, $url->name) }}</td>
 					        	<td>{{ $url->url }}</td>
 					        	<td>{{ $url->is_active }}</td>

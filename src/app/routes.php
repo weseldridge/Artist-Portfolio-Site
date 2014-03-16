@@ -70,6 +70,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	* ---------------------------------------------------------------------
 	*/
 	Route::get('url/all', array('uses' => 'UrlController@showAllURL'));
+	Route::get('url', array('uses' => 'UrlController@showAllURL'));
 	Route::get('url/add', array('uses' => 'UrlController@showAddURL'));
 	Route::post('url/add', array('uses' => 'UrlController@doAddURL'));
 	Route::post('url/edit/{id}', array('uses' => 'UrlController@doEditThisURL'));
