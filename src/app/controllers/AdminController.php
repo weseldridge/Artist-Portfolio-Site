@@ -129,6 +129,29 @@ class AdminController extends BaseController {
 	}
 
 
+	public function doToggleItem($id) {
+
+		// Find Item and update the is_active field
+		$item = Item::find($id);
+		if($item->is_active) {
+			$item->is_active = 0;
+		} else {
+			$item->is_active = 1;
+		}
+		$item->save();
+
+		// Show all items template
+		return Redirect::to('item/all');
+	}
+
+	public function doDeleteItem($id)
+	{
+		$item = Item::find($id);
+		$item->delete();
+
+		// Show all items template
+		return Redirect::to('item/all');
+	}
 
 
 	/*

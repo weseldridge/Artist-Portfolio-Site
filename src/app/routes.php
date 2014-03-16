@@ -40,8 +40,10 @@ Route::group(array('before' => 'admin_level_0'), function()
 	* ---------------------------------------------------------------------
 	*/
 	Route::get('item/all', array('uses' => 'AdminController@showAllItem'));
-	Route::get('item/edit/{id}', array('uses' => 'AdminController@showEditThisItem'));
-	Route::post('item/edit/{id}', array('uses' => 'AdminController@doEditThisItem'));
+	Route::get('item/toggle/{id}', array('uses' => 'AdminController@doToggleItem'))->where('id', '[0-9]+');
+	Route::get('item/delete/{id}', array('uses' => 'AdminController@doDeleteItem'))->where('id', '[0-9]+');
+	Route::get('item/edit/{id}', array('uses' => 'AdminController@showEditThisItem'))->where('id', '[0-9]+');
+	Route::post('item/edit/{id}', array('uses' => 'AdminController@doEditThisItem'))->where('id', '[0-9]+');
 	Route::get('item/add', array('uses' => 'AdminController@showAddItem'));
 	Route::post('item/add', array('uses' => 'AdminController@doAddItem'));
 	/*
@@ -54,6 +56,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::post('gallery/add', array('uses' => 'AdminController@doAddGallery'));
 	Route::get('gallery/edit/{id}', array('uses' => 'AdminController@showEditThisGallery'))->where('id', '[0-9]+');
 	Route::post('gallery/edit/{id}', array('uses' => 'AdminController@doEditThisGallery'))->where('id', '[0-9]+');
+	Route::get('gallery/toggle/{id}', array('uses' => 'AdminController@doToggleGallery'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
 	*							Group Admin Routes
@@ -64,6 +67,7 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::post('group/add', array('uses' => 'AdminController@doAddGroup'));
 	Route::get('group/edit/{id}', array('uses' => 'AdminController@showEditThisGroup'))->where('id', '[0-9]+');
 	Route::post('group/edit/{id}', array('uses' => 'AdminController@doEditThisGroup'))->where('id', '[0-9]+');
+	Route::get('group/toggle/{id}', array('uses' => 'AdminController@doToggleGroup'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
 	*							URL Admin Routes
@@ -73,8 +77,8 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::get('url', array('uses' => 'UrlController@showAllURL'));
 	Route::get('url/add', array('uses' => 'UrlController@showAddURL'));
 	Route::post('url/add', array('uses' => 'UrlController@doAddURL'));
-	Route::post('url/edit/{id}', array('uses' => 'UrlController@doEditThisURL'));
-	Route::get('url/edit/{id}', array('uses' => 'UrlController@showEditThisURL'))->where('id', '[0-9]+');
+	Route::post('url/edit/{id}', array('uses' => 'UrlController@doEditThisURL'))->where('id', '[0-9]+');
+	Route::get('url/toggle/{id}', array('uses' => 'UrlController@showEditThisURL'))->where('id', '[0-9]+');
 	/*
 	* ---------------------------------------------------------------------
 	*							Inbox Routes

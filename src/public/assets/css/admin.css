@@ -230,6 +230,62 @@ a {
 }
 
 
+/* table styles */
+
+.is-active {
+  margin: 0 auto;
+  text-align:center;
+  color:green;
+}
+
+.is-active:hover {
+  margin: 0 auto;
+  text-align:center;
+  color:green;
+}
+
+.is-active:visited {
+  margin: 0 auto;
+  text-align:center;
+  color:green;
+}
+
+.is-not-active {
+  margin: 0 auto;
+  text-align:center;
+  color:red;
+}
+
+.is-not-active:hover {
+  margin: 0 auto;
+  text-align:center;
+  color:red;
+}
+
+.is-not-active:visited {
+  margin: 0 auto;
+  text-align:center;
+  color:red;
+}
+
+.remove {
+  margin: 0 auto;
+  text-align:center;
+  color:gray;
+}
+.remove:hover {
+  margin: 0 auto;
+  text-align:center;
+  color:gray;
+}
+.remove:visited {
+  margin: 0 auto;
+  text-align:center;
+  color:gray;
+}
+
+
+
 /* side-nav Item Styles */
 .side-nav-item {
     padding: 0.9em 1em;

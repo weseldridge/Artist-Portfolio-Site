@@ -5,6 +5,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1" />
 	<title>Admin</title>
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 	{{-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.1/pure-min.css"> --}}
 	<link rel="stylesheet" href="{{ URL::asset('assets/css/pure-min.css') }}" />
 	<link rel="stylesheet" href="{{ URL::asset('assets/css/admin.css') }}" />

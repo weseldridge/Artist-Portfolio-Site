@@ -3,6 +3,7 @@
 class Gallery extends Eloquent {
 
     protected $table = 'galleries';
+    protected $softDelete = true;
 
     public function items()
     {
