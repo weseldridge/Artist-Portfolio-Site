@@ -76,12 +76,20 @@ Route::group(array('before' => 'admin_level_0'), function()
 	Route::post('url/edit/{id}', array('uses' => 'UrlController@doEditThisURL'));
 	Route::get('url/edit/{id}', array('uses' => 'UrlController@showEditThisURL'))->where('id', '[0-9]+');
 	/*
+	* ---------------------------------------------------------------------
+	*							Inbox Routes
+	* ---------------------------------------------------------------------
+	*/
+	Route::get('inbox', array('uses' => 'inboxController@showInbox'));
+	Route::get('inbox/test', array('uses' => 'inboxController@showInboxTest'));
+	Route::get('inbox/message/{id}', array('uses' => 'inboxController@showInboxMessage'))->where('id', '[0-9]+');
+	/*
 	* ----------------------------------------------------------------------------
 	*							Other Routes
 	* ----------------------------------------------------------------------------
 	*/
 	Route::get('admin', array('uses' => 'AdminController@showAdminHome'));
-	Route::get('inbox', array('uses' => 'inboxController@showInbox'));
+
 	Route::get('admin/settings/site', array('uses' => 'AdminController@showAdminSettingsSite'));
 	Route::get('admin/settings/user', array('uses' => 'AdminController@showAdminSettingsUser'));
 });
@@ -123,6 +131,7 @@ Route::get('group/{name}', array('uses' => 'GroupController@showThisGroupByName'
 */
 Route::get('/', array('uses' => 'HomeController@showHome'));
 Route::get('home', array('uses' => 'HomeController@showHome'));
+Route::post('email/add', array('before' => 'csrf', 'uses' => 'EmailController@doAddEmail'));
 
 
 /*

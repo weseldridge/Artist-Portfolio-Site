@@ -6,6 +6,11 @@ body {
     color: #333;
 }
 
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #959595;
+  cursor: pointer;
+}
 
 
 a {
@@ -133,8 +138,13 @@ a {
 
 /* This is the Content Styles */
 .content {
-    width: 100%;
+    max-width: 100%;
     margin-left: 145px;
+}
+
+.content-body .inner {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .content form {
@@ -211,6 +221,13 @@ a {
     display: inline-block;
 }
 
+.room {
+  margin-top: 10px;
+}
+
+.not-read td {
+  background-color: #f2f2f2;
+}
 
 
 /* side-nav Item Styles */
@@ -321,4 +338,3 @@ a {
         padding: 0;
     }
 }
-

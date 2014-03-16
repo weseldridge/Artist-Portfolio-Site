@@ -18,7 +18,7 @@
 				<ul>
 					@foreach($galleries[$group['id']] as $gallery)
 						<li>{{ HTML::link('gallery/' . $gallery['id'], $gallery['name']) }}</li>
-					@endforeach	
+					@endforeach
 				</ul>
 			@endforeach
 			@foreach($custlinks as $custlink)
@@ -31,7 +31,8 @@
 		@yield('content')
 	</div>
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	{{-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> --}}
+	<script src="{{ URL::asset('assets/js/vendor/jquery-1.11.0.min.js') }}"></script>
 	<!-- <script src="{{ URL::asset('assets/js/vendor/bootstrap.min.js') }}"></script> -->
 	<script src="{{ URL::asset('assets/js/vendor/modernizr.js') }}"></script>
 </body>
