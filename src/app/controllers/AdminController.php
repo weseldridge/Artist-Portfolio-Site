@@ -17,12 +17,12 @@ class AdminController extends BaseController {
 
 	public function showAdminSettingsUser() {
 		$this->layout->content = View::make('admins.user')->with('title','Users Settings')->with('title','User Settings');
-															  
+
 	}
 
 	public function showAdminHome() {
 		$this->layout->content = View::make('admins.main')->with('title','Users Settings')->with('title','Admin Home');
-															  
+
 	}
 
 	/*
@@ -128,7 +128,7 @@ class AdminController extends BaseController {
 															 ->with('title','Edit This Item');
 	}
 
-	
+
 
 
 	/*
@@ -220,7 +220,7 @@ class AdminController extends BaseController {
 
 		// run the validation rules on the inputs from the form
 		$validator = Validator::make(Input::all(), $rules);
-		
+
 		// if the validator fails, redirect back to the form
 		if ($validator->fails()) {
 			return Redirect::to('gallery/edit/' . $id)
@@ -290,6 +290,7 @@ class AdminController extends BaseController {
 			return Redirect::to('item/edit/' . $id)
 				->withErrors($validator);
 		} else {
+
 			$item = Item::find($id);
 			$item->name = Input::get('name');
 			$item->description = Input::get('description');
@@ -297,6 +298,7 @@ class AdminController extends BaseController {
 			$item->gallery_id = Input::get('gallery_id');
 			//$item->date = Input::get('date');
 			$item->save();
+
 
 			return Redirect::to('item/all')->with('message', 'Item successfully updated.')
 										   ->with('title', 'All Item');
@@ -307,7 +309,7 @@ class AdminController extends BaseController {
 	*	We validate and process the item being added
 	*
 	*	@param void
-	*	@return Redirect a redirect to a new page. 
+	*	@return Redirect a redirect to a new page.
 	*/
 	public function doAddItem() {
 		// validate the info, create rules for the inputs
@@ -323,13 +325,24 @@ class AdminController extends BaseController {
 			return Redirect::to('item/add')
 				->withErrors($validator);
 		} else {
-			$item = new Item;
-			$item->name = Input::get('name');
-			$item->description = Input::get('description');
-			$item->price = Input::get('price');
-			$item->gallery_id = Input::get('gallery_id');
-			$item->save();
+			if(Input::hasFile('file')) {
+				// Get the files name to remove ' ' spaces and replace them with _
+				$fileName = Input::file('file')->getClientOriginalName();
+				$fileName = str_replace(' ', '_', $fileName);
 
+				// Upload file to server
+				$destinationPath =	public_path() . '/assets/images/items/';
+				Input::file('file')->move($destinationPath, $fileName);
+
+				// Create a new item
+				$item = new Item;
+				$item->name = Input::get('name');
+				$item->description = Input::get('description');
+				$item->price = Input::get('price');
+				$item->gallery_id = Input::get('gallery_id');
+				$item->resource = $fileName;
+				$item->save();
+			}
 			return Redirect::to('item/all')->with('message', 'Item successfully added.')
 										   ->with('title', 'All Item');
 		}
@@ -339,7 +352,7 @@ class AdminController extends BaseController {
 	*
 	*/
 	public function doAdminUser(){
-		
+
 	}
 
 	/*
