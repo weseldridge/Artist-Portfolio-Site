@@ -229,6 +229,16 @@ a {
   background-color: #f2f2f2;
 }
 
+.form-text p {
+  margin-top: 5px;
+  padding-right: 10px;
+}
+.form-text h3 {
+  padding-right: 10px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
 
 /* table styles */
 
