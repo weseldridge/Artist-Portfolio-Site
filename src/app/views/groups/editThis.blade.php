@@ -16,6 +16,7 @@
 				<h3>Group Description</h3>
 				<p>
 					Describes the Group. This will help you identify a group if name of groups are close.
+				</p>
 			</div>
 			{{ Form::model($group, array('url'=>'group/edit/' . $id, 'class'=>'pure-u-1-3 pure-form pure-form-aligned', 'role'=>'form')) }}
 
