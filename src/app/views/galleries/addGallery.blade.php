@@ -33,6 +33,9 @@
 
 				{{ Form::text('description', null, array('class'=>'pure-input-1', 'placeholder'=>'Gallery Description')) }}
 			</div>
+			<div class="pure-u-1 pure-u-med-1 form-undefined">
+				{{ Form::file('file') }}
+			</div>
 			<div class="pure-u-1 form-undefined">
 				<label for="">Belongs to Group: </label>
 				<select name="group_id">

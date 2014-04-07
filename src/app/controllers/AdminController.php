@@ -265,13 +265,25 @@ class AdminController extends BaseController {
 		if ($validator->fails()) {
 			return Redirect::to('group/add')->with('message', 'The following errors occurred: ')->withErrors($validator)->withInput();
 		} else {
-			$group = new Group;
+			if(Input::hasFile('file')) {
+
+				// Get the files name to remove ' ' spaces and replace them with _
+				$fileName = Input::file('file')->getClientOriginalName();
+				$fileName = str_replace(' ', '_', $fileName);
+
+				// Upload file to server
+				$destinationPath =	public_path() . '/assets/images/groups/';
+				Input::file('file')->move($destinationPath, $fileName);
+
+				$group = new Group;
 		    $group->name = Input::get('name');
 		    $group->description = Input::get('description');
+				$group->resource = $filename;
 		    $group->save();
 
 		    return Redirect::to('group/all')->with('message', 'Group successfully added.')
 		    								->with('title', 'All Group');
+			}
 		}
 	}
 
@@ -302,7 +314,6 @@ class AdminController extends BaseController {
 			$gallery = Gallery::find($id);
 			$gallery->name = Input::get('name');
 			$gallery->description = Input::get('description');
-			$gallery->save();
 
 			return Redirect::to('gallery/all')->with('message', 'Gallery successfully updated.')
 											  ->with('title', 'All Gallery');
@@ -325,14 +336,25 @@ class AdminController extends BaseController {
 		if ($validator->fails()) {
 			return Redirect::to('gallery/add')->with('message', 'The following errors occurred: ')->withErrors($validator)->withInput();
 		} else {
-			$gallery = new Gallery;
+			if(Input::hasFile('file')) {
+				// Get the files name to remove ' ' spaces and replace them with _
+				$fileName = Input::file('file')->getClientOriginalName();
+				$fileName = str_replace(' ', '_', $fileName);
+
+				// Upload file to server
+				$destinationPath =	public_path() . '/assets/images/gallery/';
+				Input::file('file')->move($destinationPath, $fileName);
+
+				$gallery = new Gallery;
 		    $gallery->name = Input::get('name');
 		    $gallery->description = Input::get('description');
 		    $gallery->groups_id = Input::get('group_id');
+				$gallery->resource = $fileName;
 		    $gallery->save();
 
 		    return Redirect::to('gallery/all')->with('message', 'Gallery successfully added.')
 		    								  ->with('title', 'All Gallery');
+				}
 		}
 	}
 

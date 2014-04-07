@@ -4,7 +4,7 @@ class UserController extends BaseController {
 
 	protected $layout = 'layouts.master';
 
-	
+
 	public function showLogin(){
 		$this->layout->content = View::make('users.login');
 	}
@@ -22,7 +22,7 @@ class UserController extends BaseController {
 		// if the validator fails, redirect back to the form
 		if ($validator->fails()) {
 			return Redirect::to('login')
-				->withErrors($validator) 
+				->withErrors($validator)
 				->withInput(Input::except('password'));
 		} else {
 
@@ -39,9 +39,9 @@ class UserController extends BaseController {
 				Session::put('role', $user->role);
 				return Redirect::to('/')->with('msg', 'Successful logged in!');
 
-			} else {	 	
+			} else {
 
-				// validation not successful, send back to form	
+				// validation not successful, send back to form
 				return Redirect::to('login')->with('msg','email or password is incorect');
 
 			}
@@ -54,10 +54,10 @@ class UserController extends BaseController {
 
 	public function doRegister(){
 		$rules = array(
-			'name' 					=> 'required|min:3',
+			'name' 					=> 'required|min:3|max:50',
 			'email'    				=> 'required|email|unique:users',
-			'password' 				=> 'required|alphaNum|between:6,15|confirmed',
-			'password_confirmation'	=> 'required|alpha_num|between:6,12',
+			'password' 				=> 'required|confirmed|regex:((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})',
+			'password_confirmation'	=> 'required|alpha_num|between:6,20',
 		);
 
 		// run the validation rules on the inputs from the form

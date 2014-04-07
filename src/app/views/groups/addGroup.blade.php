@@ -29,10 +29,9 @@
 				{{ Form::text('name', null, array('class'=>'pure-input-1', 'placeholder'=>'Group Name')) }}
 				{{ Form::text('description', null, array('class'=>'pure-input-1', 'placeholder'=>'Group Description')) }}
 			</div>
-			{{-- <div class="form-group">
-				<label for="date">File</label>
+			<div class="pure-u-1 pure-u-med-1 form-undefined">
 				{{ Form::file('file') }}
-			</div> --}}
+			</div>
 
 			<span>
 				<button type="submit" class="pure-button pure-input-1 pure-button-primary">Add Group</button>
